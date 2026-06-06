@@ -1,0 +1,769 @@
+/* ================================================================
+   MONTHSARY WEBSITE — HOSPITAL / KDRAMA LOVE THEME
+   style.css
+   ================================================================ */
+
+:root {
+  --cream:       #fdf6f0;
+  --blush:       #f5d6d6;
+  --rose:        #c97b84;
+  --rose-deep:   #9b4a55;
+  --red-cross:   #b83232;
+  --ivory:       #faf4ee;
+  --warm-white:  #fefcfa;
+  --charcoal:    #2c2320;
+  --text-soft:   #5a4040;
+  --text-muted:  #9e7e7e;
+  --sage:        #8fa98f;
+  --pale-sage:   #d4e0d4;
+  --gold:        #c9a96e;
+  --border-soft: rgba(180, 130, 130, 0.25);
+
+  --font-display:  'DM Serif Display', serif;
+  --font-serif:    'Playfair Display', serif;
+  --font-body:     'Crimson Pro', serif;
+  --font-italic:   'Cormorant Garamond', serif;
+}
+
+/* ---- RESET & BASE ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: var(--charcoal);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================================================================
+   PAGES
+   ================================================================ */
+.page {
+  display: none;
+  position: relative;
+  min-height: 100dvh;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+.page.active { display: block; }
+
+/* ================================================================
+   BOTTOM NAV
+   ================================================================ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  background: rgba(20, 12, 12, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(180, 130, 130, 0.2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0 14px;
+  z-index: 9999;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 18px;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+.nav-btn.active { color: var(--rose); }
+.nav-icon svg { width: 22px; height: 22px; }
+.nav-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   HOME PAGE
+   ================================================================ */
+
+/* Slideshow */
+.slideshow-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+}
+.slide.active { opacity: 1; }
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 5, 5, 0.55) 0%,
+    rgba(30, 12, 14, 0.38) 40%,
+    rgba(20, 6, 8, 0.72) 100%
+  );
+}
+
+/* Medical cross background pattern */
+.medical-cross-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle, rgba(184, 50, 50, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.6;
+}
+
+/* Heartbeat line */
+.heartbeat-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.heartbeat-line::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--rose);
+  animation: pulse-line 3s infinite;
+}
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.18; }
+}
+
+/* Floating pills */
+.floating-pills {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pill {
+  position: absolute;
+  border-radius: 50px;
+  opacity: 0.12;
+}
+.pill-1 {
+  width: 44px; height: 18px;
+  background: linear-gradient(90deg, var(--rose), var(--blush));
+  top: 15%; left: 8%;
+  animation: float-pill 7s ease-in-out infinite;
+  transform: rotate(-30deg);
+}
+.pill-2 {
+  width: 32px; height: 14px;
+  background: linear-gradient(90deg, var(--pale-sage), var(--sage));
+  top: 30%; right: 10%;
+  animation: float-pill 9s ease-in-out infinite 2s;
+  transform: rotate(20deg);
+}
+.pill-3 {
+  width: 50px; height: 20px;
+  background: linear-gradient(90deg, var(--blush), var(--rose));
+  bottom: 28%; left: 12%;
+  animation: float-pill 8s ease-in-out infinite 4s;
+  transform: rotate(10deg);
+}
+
+.cross-symbol {
+  position: absolute;
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--rose);
+  opacity: 0.15;
+  animation: float-cross 10s ease-in-out infinite;
+}
+.cross-1 { font-size: 28px; top: 10%; right: 15%; animation-delay: 0s; }
+.cross-2 { font-size: 18px; top: 55%; left: 6%; animation-delay: 3s; }
+.cross-3 { font-size: 22px; bottom: 22%; right: 8%; animation-delay: 6s; }
+
+.heartbeat-dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+  opacity: 0.3;
+  animation: blink-dot 2s ease-in-out infinite;
+}
+.dot-1 { top: 22%; right: 25%; animation-delay: 0s; }
+.dot-2 { bottom: 35%; left: 20%; animation-delay: 1s; }
+
+@keyframes float-pill {
+  0%, 100% { transform: translateY(0) rotate(-30deg); }
+  50% { transform: translateY(-18px) rotate(-30deg); }
+}
+@keyframes float-cross {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes blink-dot {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.6); }
+}
+
+/* Home Content */
+.home-content {
+  position: relative;
+  z-index: 3;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 90px;
+  gap: 24px;
+}
+
+/* Hospital Header */
+.hospital-header {
+  text-align: center;
+  animation: fade-up 1s ease both;
+}
+.red-cross-badge {
+  width: 44px; height: 44px;
+  background: var(--red-cross);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  box-shadow: 0 0 20px rgba(184, 50, 50, 0.4);
+  animation: glow-cross 3s ease-in-out infinite;
+}
+.red-cross-badge svg { width: 26px; height: 26px; }
+
+@keyframes glow-cross {
+  0%, 100% { box-shadow: 0 0 20px rgba(184, 50, 50, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(184, 50, 50, 0.7); }
+}
+
+.hospital-dept {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--blush);
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+.patient-id {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: rgba(255,220,220,0.5);
+  text-transform: uppercase;
+}
+
+/* Quote Card */
+.quote-card {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255, 250, 248, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 150, 150, 0.25);
+  border-radius: 16px;
+  overflow: hidden;
+  animation: fade-up 1s ease 0.3s both;
+}
+
+.quote-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(184, 50, 50, 0.18);
+  border-bottom: 1px solid rgba(200, 150, 150, 0.2);
+}
+.vital-label {
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 214, 214, 0.7);
+}
+.vital-status {
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7ec87e;
+  padding: 2px 8px;
+  border: 1px solid rgba(126, 200, 126, 0.4);
+  border-radius: 20px;
+}
+
+.quote-body {
+  padding: 24px 22px 16px;
+  position: relative;
+}
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: var(--rose);
+  opacity: 0.4;
+  line-height: 1;
+  display: block;
+}
+.quote-mark.open { margin-bottom: -12px; }
+.quote-mark.close { text-align: right; margin-top: -12px; }
+
+.quote-text {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: 16.5px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.85;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.quote-author {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(245, 214, 214, 0.6);
+  text-align: right;
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+.quote-author em {
+  font-style: italic;
+  color: var(--blush);
+  font-size: 14px;
+}
+.quote-author span { font-size: 11px; }
+
+/* ECG strip */
+.ecg-strip {
+  width: 100%;
+  padding: 6px 0 0;
+  opacity: 0.4;
+}
+.ecg-strip svg { width: 100%; height: 35px; }
+
+/* KDrama badge */
+.kdrama-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(245, 214, 214, 0.6);
+  text-transform: uppercase;
+  animation: fade-up 1s ease 0.6s both;
+}
+.kdrama-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--rose);
+  opacity: 0.7;
+}
+
+/* ================================================================
+   8 MONTHS PAGE
+   ================================================================ */
+.months-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(160deg, #1a0d0d 0%, #0e1614 50%, #1a0d10 100%);
+}
+.months-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(180,130,130,0.04) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(180,130,130,0.04) 40px);
+}
+
+.months-content {
+  position: relative;
+  z-index: 2;
+  padding: 54px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  padding-top: 10px;
+}
+.section-cross {
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: var(--red-cross);
+  display: block;
+  margin-bottom: 8px;
+  animation: glow-text 3s ease-in-out infinite;
+}
+@keyframes glow-text {
+  0%, 100% { text-shadow: 0 0 8px rgba(184,50,50,0.4); }
+  50% { text-shadow: 0 0 20px rgba(184,50,50,0.8); }
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+.section-sub {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+  margin: 14px auto 0;
+}
+
+/* Record Block */
+.record-block {
+  background: rgba(255,250,248,0.04);
+  border: 1px solid rgba(200,150,150,0.18);
+  border-radius: 14px;
+  padding: 20px 16px;
+  backdrop-filter: blur(8px);
+}
+
+.record-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--blush);
+  margin-bottom: 4px;
+}
+.record-icon { width: 18px; height: 18px; color: var(--rose); flex-shrink: 0; }
+
+.record-sub {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+  padding-left: 28px;
+}
+
+/* Photo Grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.photo-frame {
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  border: 1px solid rgba(200,150,150,0.2);
+  background: rgba(20,10,10,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.photo-frame:active {
+  transform: scale(0.97);
+}
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.photo-frame:hover img { transform: scale(1.04); }
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 8px 8px;
+  background: linear-gradient(to top, rgba(15,5,5,0.85), transparent);
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--blush);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.gift-frame {
+  border-color: rgba(201, 169, 110, 0.25);
+}
+.gift-frame .photo-caption {
+  background: linear-gradient(to top, rgba(15,10,5,0.85), transparent);
+  color: #e8d4a8;
+}
+
+/* Chart divider */
+.chart-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px;
+}
+.chart-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(180,130,130,0.3), transparent);
+}
+.chart-cross {
+  font-size: 14px;
+  color: var(--rose);
+  opacity: 0.5;
+}
+
+/* ================================================================
+   THANK YOU PAGE
+   ================================================================ */
+.thankyou-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.ty-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+.ty-slide.ty-active { opacity: 1; }
+
+.thankyou-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 4, 5, 0.72) 0%,
+    rgba(20, 8, 10, 0.62) 40%,
+    rgba(10, 4, 5, 0.82) 100%
+  );
+}
+
+/* Petals */
+.petal-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+.petal {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  border-radius: 50% 0 50% 0;
+  background: rgba(201, 123, 132, 0.25);
+  animation: fall-petal linear infinite;
+}
+.p1 { left: 15%; animation-duration: 12s; animation-delay: 0s; top: -20px; }
+.p2 { left: 35%; animation-duration: 10s; animation-delay: 3s; top: -20px; width: 6px; height: 10px; }
+.p3 { left: 55%; animation-duration: 14s; animation-delay: 6s; top: -20px; width: 10px; height: 14px; }
+.p4 { left: 75%; animation-duration: 11s; animation-delay: 2s; top: -20px; }
+.p5 { left: 85%; animation-duration: 13s; animation-delay: 8s; top: -20px; width: 7px; height: 11px; }
+
+@keyframes fall-petal {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(110dvh) rotate(360deg); opacity: 0; }
+}
+
+/* Thank You Content */
+.thankyou-content {
+  position: relative;
+  z-index: 3;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 100px;
+  gap: 28px;
+}
+
+/* TY Header */
+.ty-header { text-align: center; animation: fade-up 1s ease both; }
+
+.ty-cross-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.ty-cross {
+  font-size: 16px;
+  color: var(--red-cross);
+  animation: glow-text 3s ease-in-out infinite;
+}
+.ty-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(200,150,150,0.3);
+}
+
+.ty-title {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-style: italic;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+.ty-subtitle {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: rgba(245,214,214,0.5);
+  text-transform: uppercase;
+}
+
+/* Poem Card */
+.ty-poem-card {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255,250,248,0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200,150,150,0.22);
+  border-radius: 16px;
+  padding: 28px 24px;
+  animation: fade-up 1s ease 0.3s both;
+}
+
+/* Ornaments */
+.ty-top-ornament,
+.ty-bottom-ornament {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.ty-bottom-ornament { margin-bottom: 0; margin-top: 22px; }
+
+.ornament-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,150,150,0.4), transparent);
+}
+.ornament-cross {
+  font-size: 14px;
+  color: var(--rose);
+  opacity: 0.6;
+}
+.ornament-heart {
+  color: var(--rose);
+  opacity: 0.6;
+}
+.ornament-heart svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Poem */
+.ty-poem {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 2;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.ty-signature {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(245,214,214,0.6);
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.ty-signature em {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--blush);
+}
+
+/* TY Footer */
+.ty-footer {
+  animation: fade-up 1s ease 0.6s both;
+}
+.ty-footer-text {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(245,214,214,0.35);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ================================================================
+   ANIMATIONS
+   ================================================================ */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================================================
+   SCROLLBAR
+   ================================================================ */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(200,150,150,0.3); border-radius: 4px; }

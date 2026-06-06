@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>8th Monthsary</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="showPage('home')">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+      </span>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="nav-btn" onclick="showPage('months')">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </span>
+      <span class="nav-label">8 Months</span>
+    </button>
+    <button class="nav-btn" onclick="showPage('thankyou')">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </span>
+      <span class="nav-label">Thank You</span>
+    </button>
+  </nav>
+
+  <!-- ===================== PAGE: HOME ===================== -->
+  <div id="page-home" class="page active">
+
+    <!-- Slideshow Background -->
+    <div class="slideshow-bg">
+      <!-- ============================================================
+           EDIT SLIDESHOW IMAGES BELOW
+           Replace "your-image-1.png", "your-image-2.png", etc.
+           with your actual image filenames (put images in same folder)
+           ============================================================ -->
+      <div class="slide active" style="background-image: url('your-image-1.png')"></div>
+      <div class="slide" style="background-image: url('your-image-2.png')"></div>
+      <div class="slide" style="background-image: url('your-image-3.png')"></div>
+      <!-- Add more <div class="slide" style="background-image: url('your-image-N.png')"></div> here -->
+    </div>
+
+    <div class="slide-overlay"></div>
+    <div class="medical-cross-bg"></div>
+    <div class="heartbeat-line"></div>
+
+    <!-- Floating medical elements -->
+    <div class="floating-pills">
+      <div class="pill pill-1"></div>
+      <div class="pill pill-2"></div>
+      <div class="pill pill-3"></div>
+      <div class="cross-symbol cross-1">+</div>
+      <div class="cross-symbol cross-2">+</div>
+      <div class="cross-symbol cross-3">+</div>
+      <div class="heartbeat-dot dot-1"></div>
+      <div class="heartbeat-dot dot-2"></div>
+    </div>
+
+    <!-- Home Content -->
+    <div class="home-content">
+      <div class="hospital-header">
+        <div class="red-cross-badge">
+          <svg viewBox="0 0 40 40" fill="white"><rect x="16" y="4" width="8" height="32" rx="2"/><rect x="4" y="16" width="32" height="8" rx="2"/></svg>
+        </div>
+        <p class="hospital-dept">DEPARTMENT OF MY HEART</p>
+        <p class="patient-id">PATIENT NO. 8 &nbsp;&middot;&nbsp; Jayden Sweet</p>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-top-bar">
+          <span class="vital-label">VITAL SIGNS &mdash; LOVE</span>
+          <span class="vital-status">STABLE</span>
+        </div>
+        <div class="quote-body">
+          <p class="quote-mark open">&ldquo;</p>
+          <!-- ============================================================
+               EDIT YOUR QUOTE / POETRY BELOW
+               Replace the text between the <p class="quote-text"> tags
+               ============================================================ -->
+          <p class="quote-text">
+            There is a word in medicine — prognosis.<br>
+            Not certainty.<br>
+            Just the most careful, most honest guess<br>
+            at what comes next.<br>
+            <br>
+            Mine, for what it is worth, is you.<br>
+            Continued. Right here.<br>
+            <br>
+            Because you are not the kind of person<br>
+            who reads the chart and walks away.<br>
+            You pull the chair closer.<br>
+            <br>
+            And I know this the way a patient knows a good doctor<br>
+            not from any proof they can hold,<br>
+            but from the feeling of being in someone's hands<br>
+            and knowing, without being told,<br>
+            that those hands are not going to let go.
+          </p>
+          <p class="quote-mark close">&rdquo;</p>
+
+          <!-- ============================================================
+               EDIT YOUR NAME / DEDICATION BELOW
+               Replace the text in <span class="quote-author">
+               ============================================================ -->
+          <p class="quote-author"><span>&mdash; Written for</span> <em>My Deni</em></p>
+        </div>
+        <div class="ecg-strip">
+          <svg viewBox="0 0 300 50" preserveAspectRatio="none">
+            <polyline points="0,25 30,25 40,25 50,5 60,45 70,25 90,25 120,25 130,25 140,5 150,45 160,25 180,25 210,25 220,25 230,5 240,45 250,25 300,25" fill="none" stroke="#e8c4c4" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="kdrama-badge">
+        <span class="kdrama-dot"></span>
+        <span>8 Months &amp; Counting</span>
+        <span class="kdrama-dot"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== PAGE: 8 MONTHS ===================== -->
+  <div id="page-months" class="page">
+
+    <div class="months-bg">
+      <div class="months-overlay"></div>
+    </div>
+
+    <div class="months-content">
+      <div class="section-header">
+        <div class="section-cross">+</div>
+        <h2 class="section-title">8 Months of Love</h2>
+        <p class="section-sub">MEDICAL RECORD &mdash; LOVE WARD</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- PETS SECTION -->
+      <div class="record-block">
+        <div class="record-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="record-icon"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          <span>Our Little Ones</span>
+        </div>
+        <p class="record-sub">The babies who make our world softer</p>
+
+        <div class="photo-grid pets-grid">
+          <!-- ============================================================
+               EDIT PET PHOTOS BELOW
+               Replace "pet-photo-1.png", "pet-photo-2.png", etc.
+               with your actual pet image filenames.
+               You can add or remove <div class="photo-frame"> blocks.
+               ============================================================ -->
+          <div class="photo-frame">
+            <img src="cuties/1.jpg" alt="Our pet" />
+            <div class="photo-caption"><!-- Edit caption here -->Happy</div>
+          </div>
+          <div class="photo-frame">
+            <img src="cuties/2.jpg" alt="Our pet" />
+            <div class="photo-caption"><!-- Edit caption here -->Panpan</div>
+          </div>
+          <div class="photo-frame">
+            <img src="cuties/3.jpg" alt="Our pet" />
+            <div class="photo-caption"><!-- Edit caption here -->Heaven</div>
+          </div>
+          <div class="photo-frame">
+            <img src="cuties/4.jpg" alt="Our pet" />
+            <div class="photo-caption"><!-- Edit caption here -->Ellie</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-divider">
+        <div class="chart-line"></div>
+        <div class="chart-cross">+</div>
+        <div class="chart-line"></div>
+      </div>
+
+      <!-- GIFTS SECTION -->
+      <div class="record-block">
+        <div class="record-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="record-icon"><path d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+          <span>My Beautiful Jayden</span>
+        </div>
+        <p class="record-sub">Every pill, a piece of my heart</p>
+
+        <div class="photo-grid gifts-grid">
+        
+          <div class="photo-frame gift-frame">
+            <img src="wife/1.jpg" alt="Gift" />
+            <div class="photo-caption"></div>
+          </div>
+          <div class="photo-frame gift-frame">
+            <img src="wife/2.jpg" alt="Gift" />
+            <div class="photo-caption"></div>
+          </div>
+          <div class="photo-frame gift-frame">
+            <img src="wife/3.jpg" alt="Gift" />
+            <div class="photo-caption"></div>
+          </div>
+          <div class="photo-frame gift-frame">
+            <img src="wife/4.jpg" alt="Gift" />
+            <div class="photo-caption"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== PAGE: THANK YOU ===================== -->
+  <div id="page-thankyou" class="page">
+
+    <div class="thankyou-bg">
+      <!-- ============================================================
+           EDIT THANK YOU PAGE BACKGROUND IMAGES BELOW
+           Replace "thankyou-bg-1.png", "thankyou-bg-2.png"
+           with your actual image filenames.
+           ============================================================ -->
+      <div class="ty-slide ty-active" style="background-image: url('thankyou-bg-1.png')"></div>
+      <div class="ty-slide" style="background-image: url('thankyou-bg-2.png')"></div>
+      <div class="ty-slide" style="background-image: url('thankyou-bg-3.png')"></div>
+    </div>
+    <div class="thankyou-overlay"></div>
+
+    <!-- Floating petals -->
+    <div class="petal-container">
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+      <div class="petal p5"></div>
+    </div>
+
+    <div class="thankyou-content">
+      <div class="ty-header">
+        <div class="ty-cross-row">
+          <span class="ty-cross">+</span>
+          <span class="ty-line"></span>
+          <span class="ty-cross">+</span>
+        </div>
+        <h2 class="ty-title">Thank You</h2>
+        <p class="ty-subtitle">PRESCRIPTION FOR MY HEART</p>
+      </div>
+
+      <div class="ty-poem-card">
+        <div class="ty-top-ornament">
+          <div class="ornament-line"></div>
+          <div class="ornament-cross">+</div>
+          <div class="ornament-line"></div>
+        </div>
+
+        <!-- ============================================================
+             EDIT YOUR THANK YOU POETRY BELOW
+             Replace the text between the <p class="ty-poem"> tags.
+             Use <br> for line breaks.
+             ============================================================ -->
+        <p class="ty-poem">
+            There is a train that runs through the stars,<br>
+            carrying strangers toward places<br>
+            they have never been<br>
+            and cannot yet name.<br><br>
+
+            Nobody chooses the route.<br>
+            Nobody knows the next stop.<br>
+            You just board, and you trust,<br>
+            and somewhere between one world and the next<br>
+            you find the person<br>
+            who makes the traveling worth it.<br><br>
+
+            That is what you are to me.<br>
+            Not the destination.<br>
+            The reason I do not mind<br>
+            that the journey has no end.<br><br>
+
+            Eight months of stars behind us.<br>
+            Every one of them, yours.<br>
+            Every one of them, ours.
+            </p>
+
+        <!-- ============================================================
+             EDIT THE DEDICATION / SIGN-OFF BELOW
+             ============================================================ -->
+        <p class="ty-signature">
+          With all my love,<br>
+          <em>Jayden</em>
+        </p>
+
+        <div class="ty-bottom-ornament">
+          <div class="ornament-line"></div>
+          <div class="ornament-heart">
+            <svg viewBox="0 0 20 18" fill="currentColor"><path d="M10 17.55l-1.45-1.32C4.4 12.36 1 9.28 1 5.5 1 2.42 3.42 0 6.5 0c1.74 0 3.41.81 4.5 2.09C12.09.81 13.76 0 15.5 0 18.58 0 21 2.42 21 5.5c0 3.78-3.4 6.86-7.55 10.73L10 17.55z" transform="translate(-1,0)"/></svg>
+          </div>
+          <div class="ornament-line"></div>
+        </div>
+      </div>
+
+      <div class="ty-footer">
+        <span class="ty-footer-text">8 Months &mdash; Department of the Heart</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
