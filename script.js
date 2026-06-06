@@ -1,8 +1,3 @@
-/* ================================================================
-   MONTHSARY WEBSITE — script.js
-   ================================================================ */
-
-// ---- PAGE NAVIGATION ----
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -16,7 +11,7 @@ function showPage(pageId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ---- HOME SLIDESHOW ----
+
 (function initHomeSlideshow() {
   const slides = document.querySelectorAll('.slideshow-bg .slide');
   if (!slides.length) return;
@@ -28,11 +23,11 @@ function showPage(pageId) {
     slides[current].classList.add('active');
   }
 
-  // Change every 5 seconds
+
   setInterval(nextSlide, 5000);
 })();
 
-// ---- THANK YOU SLIDESHOW ----
+
 (function initTySlideshow() {
   const slides = document.querySelectorAll('.ty-slide');
   if (!slides.length) return;
@@ -47,12 +42,12 @@ function showPage(pageId) {
   setInterval(nextSlide, 6000);
 })();
 
-// ---- ECG ANIMATION (heartbeat draw effect) ----
+
 (function initEcg() {
   const polyline = document.querySelector('.ecg-strip polyline');
   if (!polyline) return;
 
-  // Animate the stroke-dashoffset for a drawing effect
+  
   const length = 320;
   polyline.style.strokeDasharray = length;
   polyline.style.strokeDashoffset = length;
@@ -76,7 +71,7 @@ function showPage(pageId) {
   requestAnimationFrame(animate);
 })();
 
-// ---- PHOTO FRAME: tap to expand ----
+
 (function initPhotoTap() {
   const frames = document.querySelectorAll('.photo-frame');
 
@@ -85,7 +80,7 @@ function showPage(pageId) {
       const img = this.querySelector('img');
       if (!img) return;
 
-      // Create lightbox
+
       const lb = document.createElement('div');
       lb.style.cssText = `
         position: fixed; inset: 0; z-index: 99999;
@@ -114,7 +109,7 @@ function showPage(pageId) {
   });
 })();
 
-// ---- SCROLL REVEAL for months page ----
+
 (function initScrollReveal() {
   const observer = new IntersectionObserver(
     entries => {
@@ -128,7 +123,7 @@ function showPage(pageId) {
     { threshold: 0.1 }
   );
 
-  // We'll apply reveal to record blocks
+
   const targets = document.querySelectorAll('.record-block, .section-header, .chart-divider');
   targets.forEach((el, i) => {
     el.style.opacity = '0';
