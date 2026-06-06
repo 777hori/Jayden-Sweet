@@ -1,8 +1,3 @@
-/* ================================================================
-   MONTHSARY WEBSITE — HOSPITAL / KDRAMA LOVE THEME
-   style.css
-   ================================================================ */
-
 :root {
   --cream:       #fdf6f0;
   --blush:       #f5d6d6;
@@ -25,7 +20,6 @@
   --font-italic:   'Cormorant Garamond', serif;
 }
 
-/* ---- RESET & BASE ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
@@ -50,9 +44,7 @@ img {
   object-fit: cover;
 }
 
-/* ================================================================
-   PAGES
-   ================================================================ */
+
 .page {
   display: none;
   position: relative;
@@ -62,9 +54,7 @@ img {
 }
 .page.active { display: block; }
 
-/* ================================================================
-   BOTTOM NAV
-   ================================================================ */
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -104,11 +94,7 @@ img {
   text-transform: uppercase;
 }
 
-/* ================================================================
-   HOME PAGE
-   ================================================================ */
 
-/* Slideshow */
 .slideshow-bg {
   position: absolute;
   inset: 0;
@@ -136,7 +122,7 @@ img {
   );
 }
 
-/* Medical cross background pattern */
+
 .medical-cross-bg {
   position: absolute;
   inset: 0;
@@ -147,7 +133,7 @@ img {
   opacity: 0.6;
 }
 
-/* Heartbeat line */
+
 .heartbeat-line {
   position: absolute;
   top: 50%;
@@ -169,7 +155,7 @@ img {
   50% { opacity: 0.18; }
 }
 
-/* Floating pills */
+
 .floating-pills {
   position: absolute;
   inset: 0;
@@ -240,7 +226,7 @@ img {
   50% { opacity: 0.7; transform: scale(1.6); }
 }
 
-/* Home Content */
+
 .home-content {
   position: relative;
   z-index: 3;
@@ -253,7 +239,7 @@ img {
   gap: 24px;
 }
 
-/* Hospital Header */
+
 .hospital-header {
   text-align: center;
   animation: fade-up 1s ease both;
@@ -293,7 +279,7 @@ img {
   text-transform: uppercase;
 }
 
-/* Quote Card */
+
 .quote-card {
   width: 100%;
   max-width: 360px;
@@ -372,7 +358,7 @@ img {
 }
 .quote-author span { font-size: 11px; }
 
-/* ECG strip */
+
 .ecg-strip {
   width: 100%;
   padding: 6px 0 0;
@@ -380,7 +366,7 @@ img {
 }
 .ecg-strip svg { width: 100%; height: 35px; }
 
-/* KDrama badge */
+
 .kdrama-badge {
   display: flex;
   align-items: center;
@@ -399,9 +385,7 @@ img {
   opacity: 0.7;
 }
 
-/* ================================================================
-   8 MONTHS PAGE
-   ================================================================ */
+
 .months-bg {
   position: absolute;
   inset: 0;
@@ -425,7 +409,7 @@ img {
   gap: 32px;
 }
 
-/* Section Header */
+
 .section-header {
   text-align: center;
   padding-top: 10px;
@@ -463,7 +447,7 @@ img {
   margin: 14px auto 0;
 }
 
-/* Record Block */
+
 .record-block {
   background: rgba(255,250,248,0.04);
   border: 1px solid rgba(200,150,150,0.18);
@@ -493,7 +477,7 @@ img {
   padding-left: 28px;
 }
 
-/* Photo Grid */
+
 .photo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -544,7 +528,7 @@ img {
   color: #e8d4a8;
 }
 
-/* Chart divider */
+
 .chart-divider {
   display: flex;
   align-items: center;
@@ -562,9 +546,7 @@ img {
   opacity: 0.5;
 }
 
-/* ================================================================
-   THANK YOU PAGE
-   ================================================================ */
+
 .thankyou-bg {
   position: absolute;
   inset: 0;
@@ -592,7 +574,7 @@ img {
   );
 }
 
-/* Petals */
+
 .petal-container {
   position: absolute;
   inset: 0;
@@ -621,7 +603,7 @@ img {
   100% { transform: translateY(110dvh) rotate(360deg); opacity: 0; }
 }
 
-/* Thank You Content */
+
 .thankyou-content {
   position: relative;
   z-index: 3;
@@ -634,7 +616,7 @@ img {
   gap: 28px;
 }
 
-/* TY Header */
+
 .ty-header { text-align: center; animation: fade-up 1s ease both; }
 
 .ty-cross-row {
@@ -671,7 +653,7 @@ img {
   text-transform: uppercase;
 }
 
-/* Poem Card */
+
 .ty-poem-card {
   width: 100%;
   max-width: 360px;
@@ -684,7 +666,7 @@ img {
   animation: fade-up 1s ease 0.3s both;
 }
 
-/* Ornaments */
+
 .ty-top-ornament,
 .ty-bottom-ornament {
   display: flex;
@@ -713,7 +695,7 @@ img {
   height: 14px;
 }
 
-/* Poem */
+
 .ty-poem {
   font-family: var(--font-italic);
   font-style: italic;
@@ -740,7 +722,7 @@ img {
   color: var(--blush);
 }
 
-/* TY Footer */
+
 .ty-footer {
   animation: fade-up 1s ease 0.6s both;
 }
@@ -753,17 +735,13 @@ img {
   text-align: center;
 }
 
-/* ================================================================
-   ANIMATIONS
-   ================================================================ */
+
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ================================================================
-   SCROLLBAR
-   ================================================================ */
+
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(200,150,150,0.3); border-radius: 4px; }
